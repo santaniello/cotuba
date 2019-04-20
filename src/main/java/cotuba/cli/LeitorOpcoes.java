@@ -1,4 +1,4 @@
-package cotuba;
+package cotuba.cli;
 
 import org.apache.commons.cli.*;
 
@@ -80,10 +80,7 @@ public class LeitorOpcoes {
 
             modoVerboso = cmd.hasOption("verbose");
         } catch (RuntimeException e) {
-            if (modoVerboso) {
-                e.printStackTrace();
-            }
-            System.exit(1);
+            throw new RuntimeException("Opção inválida", e);
         }
     }
 
